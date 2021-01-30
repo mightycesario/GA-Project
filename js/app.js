@@ -1,15 +1,15 @@
 console.log("SWAPI test")
 
 
-fetch()
-  .then((respeonseData) => {
-    return respeonseData.json()
+fetch("https://swapi.dev/api/planets/")
+  .then((responseData) => {
+    return responseData.json()
   })
   .then((parsedData) => {
     let firstP = document.querySelector("p")
     let childP = document.createElement("p")
-    childP.textContent = `SWAPI data: ${parsedData}`
-    firstP.appendChild(childP)
+    console.log(parsedData)
+    
   })
 
   
