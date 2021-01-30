@@ -1,4 +1,35 @@
+body {
+  position:relative;
+}
+
 div {
   margin: 0 auto;
   text-align: center;
+}
+
+img.pic {
+  width: 300px;
+  height: 200px;
+  border: 2px solid #000;
+  margin: 20px;
+}
+
+aside {
+  border:2px solid red;
+  width: 350px;
+}
+
+#data {
+  position: absolute;
+  top:20px;
+  right:100px;
+  border: 2px solid green;
+}
+
+#temperature {
+  position: absolute;
+  top:20px;
+  right:300px;
+  width: 200px;
+  border: 2px solid green;
 }
