@@ -37,5 +37,10 @@ img.pic {
 }
 
 #globe {
- 
+ border: 2px solid blue;
+}
+
+#globe img {
+ width: 100px;
+ height: 100px;
 }
