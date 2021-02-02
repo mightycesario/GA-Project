@@ -1,11 +1,7 @@
-console.log("SWAPI test")
-
 // Global Variables
-///////////////////
 
 // Select Elements (caching)
-////////////////////////////
-const globlEl = document.querySelector("#globe")
+const globeEl = document.querySelector("#globe")
 const captionEl = document.querySelector("#caption")
 const thumbsEl = document.querySelector("#thumbs")
 const quotesEl = document.querySelector("#quotes")
@@ -13,70 +9,13 @@ const planetsEl = document.querySelector("#planet-facts")
 const filmDataEl = document.querySelector("#film-data")
 const imgs = document.querySelectorAll(".pic")
 const titleDataEl = document.querySelector("#image-caption")
+const apiURL = "https://swapi.dev/api/"
+
 
 // Event Listeners
-// - anonymous inline function
-//////////////////////////////
-document.querySelector("#thumbs").addEventListener("click", (e) => {
-
-  let timer = null
-  let index = 0
-  
-  const displayQuote = () => {
-    const newHopequotes = ["That’s no moon. It’s a space station. — Obi-Wan Kenobi", "Aren’t you a little short for a stormtrooper? — Leia Organa", "I find your lack of faith disturbing. — Darth Vader"]
-
-    const empireQuotes = ["Yes, Your Highnessness? – Han Solo", "He’s no good to me dead. – Boba Fett", "The son of Skywalker must not become a Jedi. – Emperor Palpatine",
-      "Why, you stuck up, half-witted, scruffy-looking…nerf-herder! – Leia Organa", "Do. Or do not. There is no try. – Yoda", "I am your father. – Darth Vader"]
-
-    const returnQuotes = ["Bring me Solo and the Wookiee. They will all suffer for this outrage.", "Obi-Wan has taught you well.", "And now, young Skywalker...you will die.", "IT'S A TRAP!!", "You cannot hide forever, Luke.", "I am a Jedi, like my father before me", "What is thy bidding, my master?"]
 
 
-    
-    // console.log("imgs", imgs)
-    
-    for(let i = 0; i < imgs.length; i++) {
-        // console.log(imgs[idx].getAttribute("planet"))
-
-        if(imgs[i].getAttribute("planet") === "Tatooine") {
-          if (index === newHopequotes.length - 1) {
-            console.log("tat")
-            quotesEl.innerHTML = newHopequotes[i]
-            // index = 0
-            clearInterval(timer)
-          }
-        } else if(imgs[i].getAttribute("planet") === "Hoth") {
-            if (index === newHopequotes.length - 1) {
-              console.log("hoth")
-              quotesEl.innerHTML = empireQuotes[index]
-              // index = 0
-              clearInterval(timer)
-            }
-      } else if(imgs[i].getAttribute("planet") === "Naboo") {
-            if (index === newHopequotes.length - 1) {
-              console.log("nab")
-              quotesEl.innerHTML = empireQuotes[index]
-              // index = 0
-              clearInterval(timer)
-              // index = 0
-              clearInterval(timer)
-            }
-      } else {
-          index++
-      }
-    }
-
-
-  }
-
-  timer = setInterval(displayQuote, 2000)
-
-})
-
-// Event listeners (with named function callbacks)
-
-
-
-fetch("https://swapi.dev/api/planets/")
+fetch(apiURL + "planets")
   .then((responseData) => {
     return responseData.json()
   })
@@ -103,12 +42,12 @@ fetch("https://swapi.dev/api/planets/")
             Population: ${parsedData.results[i].population}
             Diameter: ${parsedData.results[i.diameter]}
             `
-        } else if (imgs[i].getAttribute("planet") === "Naboo") {
+        } else if (imgs[i].getAttribute("planet") === "Hoth") {
           console.log("inside: ", this.getAttribute("planet"))
-          titleDataEl.textContent = "Welcome to Naboo! This is where Luke and Leia's Mother descends from. If you look close or watch from a different timeline you just might spot the beautiful Princess Amadala!"
+          titleDataEl.textContent = "Welcome to Hoth! This planet made it's debut in the second installment of the original star wars trilogy, known for its freezing cold weather, beautiful views and Taun-Tauns!"
         } else {
           console.log("inside: ", this.getAttribute("planet"))
-          titleDataEl.textContent = "Welcome to Hothasdfasdf! This planet made it's debut in the second installment of the original star wars trilogy, known for its freezing cold weather, beautiful views and Taun-Tauns!"
+          titleDataEl.textContent = "Welcome to Endor! Home of tall trees, tree-house structures, and of course home of the furry Ewok's!"
           planetsEl.textContent = `Here are some interesting facts about this planet: 
             Terrain: ${parsedData.results[i].terrain}
             Population: ${parsedData.results[i].population}
@@ -127,14 +66,13 @@ fetch("https://swapi.dev/api/planets/")
 
 
 
-// Functions (try to use function syntax for hoisting OR pay attention to order of functions)
-//////////////////////////////////////////////////////////////////////////////////
+// Functions
 
 
 // Fetch API data on planet and display it via DOM 
 const displayPlanetData = () => {
   let globeEl = document.querySelector("#globe")
-  let thumbs = document.querySelectorAll("img")
+  // let thumbs = document.querySelectorAhttps://swapi.dev/api/ll("img")
   for(let tempVar in thumbs) {
     if(thumbs[tempVar].getAttribute("planet") === "Tatooine") {
       globeEl.innerHTML += "testing"
@@ -142,12 +80,50 @@ const displayPlanetData = () => {
   }
 } 
 
+document.querySelector("#thumbs").addEventListener("click", () => {
 
+  let timer = null
+  let index = 0
+
+  function displayQuote() {
+    const newHopequotes = ["That’s no moon. It’s a space station. — Obi-Wan Kenobi", "Aren’t you a little short for a stormtrooper? — Leia Organa", "I find your lack of faith disturbing. — Darth Vader"]
+
+    const empireQuotes = ["Yes, Your Highnessness? – Han Solo", "He’s no good to me dead. – Boba Fett", "The son of Skywalker must not become a Jedi. – Emperor Palpatine",
+      "Why, you stuck up, half-witted, scruffy-looking…nerf-herder! – Leia Organa", "Do. Or do not. There is no try. – Yoda", "I am your father. – Darth Vader"]
+
+    const returnQuotes = ["Bring me Solo and the Wookiee. They will all suffer for this outrage.", "Obi-Wan has taught you well.", "And now, young Skywalker...you will die.", "IT'S A TRAP!!", "You cannot hide forever, Luke.", "I am a Jedi, like my father before me", "What is thy bidding, my master?"]
+
+
+
+    // for(let idx in newHopequotes) {
+    //   quotesEl.innerHTML = newHopequotes[idx]
+    //   console.log(index)
+    //   // console.log(index)
+    // }
+    quotesEl.innerHTML = newHopequotes[index]
+
+    if (index === newHopequotes.length - 1) {
+      clearInterval(timer)
+      console.log("now clearinterval")
+      // setTimeout(timer)
+    } else {
+      index++
+    }
+
+    if(index > 3) {
+      index = 0
+    }
+
+  }
+
+  timer = setInterval(displayQuote, 2000)
+
+})
 
 
 const filmDataFunction = () => {
   
-  fetch("https://swapi.dev/api/people")
+  fetch(apiURL + "people")
     .then((responseData) => {
       return responseData.json()
     })
@@ -168,4 +144,42 @@ const filmDataFunction = () => {
 }
 
 
-console.log(filmDataFunction())
+// console.log(filmDataFunction())
+
+// populate planet-api-data with API data
+
+function planetWeather() {
+
+  fetch(apiURL + "planets")
+    .then((responseData) => {
+      return responseData.json()
+    })
+    .then((parsedData) => {
+      let spanEl = globeEl.querySelector("#planet-api-data")
+      console.log(imgs[0].getAttribute("planet"))
+
+      if(imgs[0].getAttribute("planet") === "Tatooine") {
+        console.log(spanEl)
+        spanEl.innerHTML = `Current weather on ${parsedData.results[0].name}<br>`
+        spanEl.innerHTML += `Current climate: ${parsedData.results[0].climate}<br>`
+        spanEl.innerHTML += `Current population: ${parsedData.results[0].population}<br>`
+      }
+
+      if(imgs[1].getAttribute("planet") === "Hoth") {
+        console.log(parsedData.results[3].name)
+        console.log(`Current climate: ${parsedData.results[0].climate} \n`)
+        console.log(`Current population: ${parsedData.results[0].population}`)
+        console.log(spanEl.textContent)
+      }
+      
+      if(imgs[2].getAttribute("planet") === "Endor") {
+        console.log(parsedData.results[6].name)
+        console.log(`Current climate: ${parsedData.results[0].climate} \n`)
+        console.log(`Current population: ${parsedData.results[0].population}`)
+        console.log(spanEl.textContent)
+      }
+    })
+    
+}
+
+planetWeather()

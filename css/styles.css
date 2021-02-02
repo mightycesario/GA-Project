@@ -7,6 +7,11 @@ div {
   margin:30px auto;
 }
 
+#planet-api-data {
+  color:fuchsia; 
+  font-size: 15px; 
+}
+
 #caption {
   text-align: center;
 }
@@ -44,6 +49,7 @@ img.pic {
 #globe img {
  width: 100px;
  height: 100px;
+ float: left;
 }
 
 #film-data {
