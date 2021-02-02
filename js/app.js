@@ -7,10 +7,10 @@ const globlEl = document.querySelector("#globe")
 const captionEl = document.querySelector("#caption")
 const thumbsEl = document.querySelector("#thumbs")
 const quotesEl = document.querySelector("#quotes")
-const planetsEl = document.querySelector("#planet-data")
+const planetsEl = document.querySelector("#planet-facts")
 const filmDataEl = document.querySelector("#film-data")
 const imgs = document.querySelectorAll(".pic")
-const titleDataEl = document.querySelector("#title-data")
+const titleDataEl = document.querySelector("#image-caption")
 
 
 // Event Listeners
@@ -37,8 +37,8 @@ fetch("https://swapi.dev/api/planets/")
       imgs[i].addEventListener("click", function () {
         if (imgs[i].getAttribute("planet") === "Tatooine") {
           console.log("inside: ", this.getAttribute("planet"))
-          titleDataEl.textContent = `Welcome to Tatooine! Alson known as the planet of the twin suns. This is the home planet of the Skywalker's!`
-          titleDataEl.textContent = `Here are some interesting facts about this planet: 
+          titleDataEl.textContent = `Welcome to Tatooine! Also known as the planet of the twin suns. This is the home planet of the Skywalker's!`
+          planetsEl.textContent = `Here are some interesting facts about this planet: 
             Terrain: ${parsedData.results[i].terrain}
             Population: ${parsedData.results[i].population}
             Diameter: ${parsedData.results[i.diameter]}
@@ -46,11 +46,10 @@ fetch("https://swapi.dev/api/planets/")
         } else if (imgs[i].getAttribute("planet") === "Naboo") {
           console.log("inside: ", this.getAttribute("planet"))
           titleDataEl.textContent = "Welcome to Naboo! This is where Luke and Leia's Mother descends from. If you look close or watch from a different timeline you just might spot the beautiful Princess Amadala!"
-          return
         } else {
           console.log("inside: ", this.getAttribute("planet"))
-          titleDataEl.textContent = "Welcome to Hoth! This planet made it's debut in the second installment of the original star wars trilogy, known for its freezing cold weather, beautiful views and Taun-Tauns!"
-          titleDataEl.textContent = `Here are some interesting facts about this planet: 
+          titleDataEl.textContent = "Welcome to Hothasdfasdf! This planet made it's debut in the second installment of the original star wars trilogy, known for its freezing cold weather, beautiful views and Taun-Tauns!"
+          planetsEl.textContent = `Here are some interesting facts about this planet: 
             Terrain: ${parsedData.results[i].terrain}
             Population: ${parsedData.results[i].population}
             Diameter: ${parsedData.results[i.diameter]}
@@ -66,9 +65,6 @@ fetch("https://swapi.dev/api/planets/")
 
   })
 
-
-let timer = null
-let index = 0
 
 
 // Functions
@@ -86,18 +82,43 @@ const displayPlanetData = () => {
 } 
 
 document.querySelector("#thumbs").addEventListener("click", () => {
+
+  let timer = null
+  let index = 0
+
   function displayQuote() {
-    const quotes = ["That’s no moon. It’s a space station.\” — Obi-Wan Kenobi", "Aren’t you a little short for a stormtrooper?\” — Leia Organa", "I find your lack of faith disturbing.\” — Darth Vader"]
-    let quotesEl = document.querySelector("#quotes")
-    quotesEl.innerHTML = `"${quotes[index]}"`
-    if (index === quotes.length - 1) {
+    const newHopequotes = ["That’s no moon. It’s a space station. — Obi-Wan Kenobi", "Aren’t you a little short for a stormtrooper? — Leia Organa", "I find your lack of faith disturbing. — Darth Vader"]
+
+    const empireQuotes = ["Yes, Your Highnessness? – Han Solo", "He’s no good to me dead. – Boba Fett", "The son of Skywalker must not become a Jedi. – Emperor Palpatine",
+      "Why, you stuck up, half-witted, scruffy-looking…nerf-herder! – Leia Organa", "Do. Or do not. There is no try. – Yoda", "I am your father. – Darth Vader"]
+
+    const returnQuotes = ["Bring me Solo and the Wookiee. They will all suffer for this outrage.", "Obi-Wan has taught you well.", "And now, young Skywalker...you will die.", "IT'S A TRAP!!", "You cannot hide forever, Luke.", "I am a Jedi, like my father before me", "What is thy bidding, my master?"]
+
+
+
+    // for(let idx in newHopequotes) {
+    //   quotesEl.innerHTML = newHopequotes[idx]
+    //   console.log(index)
+    //   // console.log(index)
+    // }
+    quotesEl.innerHTML = newHopequotes[index]
+
+    if (index === newHopequotes.length - 1) {
       clearInterval(timer)
-      setTimeout(timer)
+      console.log("now clearinterval")
+      // setTimeout(timer)
     } else {
       index++
     }
+
+    if(index > 3) {
+      index = 0
+    }
+
   }
-  timer = setInterval(displayQuote, 3000)
+
+  timer = setInterval(displayQuote, 2000)
+
 })
 
 
