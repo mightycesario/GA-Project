@@ -1,5 +1,6 @@
 body {
-  
+  font-size: 20px;
+  font-family: monospace;
 }
 
 div {
@@ -25,15 +26,16 @@ img.pic {
 #planet-data {  
   border: 2px solid green;
   width: 400px;
-  font-family: monospace;
-  font-size: 20px;
+}
+
+#title-data {
+  border:2px solid orange;
 }
 
 #quotes {  
   width: 500px;
   border: 2px solid pink;
-  font-size: 20px;
-  font-family: monospace;
+  
 }
 
 #globe {
@@ -43,4 +45,8 @@ img.pic {
 #globe img {
  width: 100px;
  height: 100px;
+}
+
+#film-data {
+  border:2px solid fuchsia;
 }
