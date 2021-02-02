@@ -1,8 +1,10 @@
 console.log("SWAPI test")
 
 // Global Variables
+///////////////////
 
 // Select Elements (caching)
+////////////////////////////
 const globlEl = document.querySelector("#globe")
 const captionEl = document.querySelector("#caption")
 const thumbsEl = document.querySelector("#thumbs")
@@ -12,8 +14,66 @@ const filmDataEl = document.querySelector("#film-data")
 const imgs = document.querySelectorAll(".pic")
 const titleDataEl = document.querySelector("#image-caption")
 
-
 // Event Listeners
+// - anonymous inline function
+//////////////////////////////
+document.querySelector("#thumbs").addEventListener("click", (e) => {
+
+  let timer = null
+  let index = 0
+  
+  const displayQuote = () => {
+    const newHopequotes = ["That’s no moon. It’s a space station. — Obi-Wan Kenobi", "Aren’t you a little short for a stormtrooper? — Leia Organa", "I find your lack of faith disturbing. — Darth Vader"]
+
+    const empireQuotes = ["Yes, Your Highnessness? – Han Solo", "He’s no good to me dead. – Boba Fett", "The son of Skywalker must not become a Jedi. – Emperor Palpatine",
+      "Why, you stuck up, half-witted, scruffy-looking…nerf-herder! – Leia Organa", "Do. Or do not. There is no try. – Yoda", "I am your father. – Darth Vader"]
+
+    const returnQuotes = ["Bring me Solo and the Wookiee. They will all suffer for this outrage.", "Obi-Wan has taught you well.", "And now, young Skywalker...you will die.", "IT'S A TRAP!!", "You cannot hide forever, Luke.", "I am a Jedi, like my father before me", "What is thy bidding, my master?"]
+
+
+    
+    // console.log("imgs", imgs)
+    
+    for(let i = 0; i < imgs.length; i++) {
+        // console.log(imgs[idx].getAttribute("planet"))
+
+        if(imgs[i].getAttribute("planet") === "Tatooine") {
+          if (index === newHopequotes.length - 1) {
+            console.log("tat")
+            quotesEl.innerHTML = newHopequotes[i]
+            // index = 0
+            clearInterval(timer)
+          }
+        } else if(imgs[i].getAttribute("planet") === "Hoth") {
+            if (index === newHopequotes.length - 1) {
+              console.log("hoth")
+              quotesEl.innerHTML = empireQuotes[index]
+              // index = 0
+              clearInterval(timer)
+            }
+      } else if(imgs[i].getAttribute("planet") === "Naboo") {
+            if (index === newHopequotes.length - 1) {
+              console.log("nab")
+              quotesEl.innerHTML = empireQuotes[index]
+              // index = 0
+              clearInterval(timer)
+              // index = 0
+              clearInterval(timer)
+            }
+      } else {
+          index++
+      }
+    }
+
+
+  }
+
+  timer = setInterval(displayQuote, 2000)
+
+})
+
+// Event listeners (with named function callbacks)
+
 
 
 fetch("https://swapi.dev/api/planets/")
@@ -67,7 +127,8 @@ fetch("https://swapi.dev/api/planets/")
 
 
 
-// Functions
+// Functions (try to use function syntax for hoisting OR pay attention to order of functions)
+//////////////////////////////////////////////////////////////////////////////////
 
 
 // Fetch API data on planet and display it via DOM 
@@ -81,45 +142,7 @@ const displayPlanetData = () => {
   }
 } 
 
-document.querySelector("#thumbs").addEventListener("click", () => {
 
-  let timer = null
-  let index = 0
-
-  function displayQuote() {
-    const newHopequotes = ["That’s no moon. It’s a space station. — Obi-Wan Kenobi", "Aren’t you a little short for a stormtrooper? — Leia Organa", "I find your lack of faith disturbing. — Darth Vader"]
-
-    const empireQuotes = ["Yes, Your Highnessness? – Han Solo", "He’s no good to me dead. – Boba Fett", "The son of Skywalker must not become a Jedi. – Emperor Palpatine",
-      "Why, you stuck up, half-witted, scruffy-looking…nerf-herder! – Leia Organa", "Do. Or do not. There is no try. – Yoda", "I am your father. – Darth Vader"]
-
-    const returnQuotes = ["Bring me Solo and the Wookiee. They will all suffer for this outrage.", "Obi-Wan has taught you well.", "And now, young Skywalker...you will die.", "IT'S A TRAP!!", "You cannot hide forever, Luke.", "I am a Jedi, like my father before me", "What is thy bidding, my master?"]
-
-
-
-    // for(let idx in newHopequotes) {
-    //   quotesEl.innerHTML = newHopequotes[idx]
-    //   console.log(index)
-    //   // console.log(index)
-    // }
-    quotesEl.innerHTML = newHopequotes[index]
-
-    if (index === newHopequotes.length - 1) {
-      clearInterval(timer)
-      console.log("now clearinterval")
-      // setTimeout(timer)
-    } else {
-      index++
-    }
-
-    if(index > 3) {
-      index = 0
-    }
-
-  }
-
-  timer = setInterval(displayQuote, 2000)
-
-})
 
 
 const filmDataFunction = () => {
@@ -145,5 +168,4 @@ const filmDataFunction = () => {
 }
 
 
-// console.log(filmDataFunction())
-
+console.log(filmDataFunction())
