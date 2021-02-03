@@ -7,8 +7,19 @@ div {
   margin:30px auto;
 }
 
+
+#movieLogo {
+  width: 600px;
+  margin: 0 auto;
+}
+
+#movieLogo img {
+  width: 500px;
+  height: 300px;
+}
+
 #planet-api-data {
-  color:fuchsia; 
+  color: #000; 
   font-size: 15px; 
 }
 
@@ -50,6 +61,14 @@ img.pic {
  width: 100px;
  height: 100px;
  float: left;
+}
+
+#globe ul {
+  margin-left: 100px;
+}
+
+#globe li {
+  list-style-type: none;
 }
 
 #film-data {
