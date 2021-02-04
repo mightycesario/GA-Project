@@ -256,12 +256,14 @@ function planetWeather(e) {
           <li class="climate-population">Population: ${parsedData.results[0].population}</li>
           </ul>`
       } else if (planet === "Hoth") {
+        planetName.innerHTML = parsedData.results[3].name
         globeDiv.innerHTML = `
           <ul>
           <li class="climate-population">Climate: ${parsedData.results[3].climate}</li>
           <li class="climate-population">Population: ${parsedData.results[3].population}</li>
           </ul>`
       } else {
+        planetName.innerHTML = parsedData.results[6].name
         globeDiv.innerHTML = `
           <ul>
           <li class="climate-population">Climate: ${parsedData.results[6].climate}</li>
