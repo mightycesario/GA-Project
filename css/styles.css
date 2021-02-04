@@ -1,7 +1,7 @@
 body {
   font-size: 20px;
   font-family: monospace;
-  background:#ffffff url("/images/space-background-with-stars-vector-illustration_97886-319.jpg") repeat right top;
+  background:#000 url("/images/space-background-with-stars-vector-illustration_97886-319.jpg") repeat right top;
   color: #fff;
 }
 
@@ -23,6 +23,7 @@ div {
 #planet-api-data {
   color: #000; 
   font-size: 15px; 
+
 }
 
 #caption {
@@ -65,6 +66,8 @@ img.pic:hover {
 }
 
 #globe {
+ display: flex;
+ justify-content: flex-start;
  border: 2px solid blue;
  width: 800px;
  margin-bottom: 0;
@@ -80,14 +83,14 @@ img.pic:hover {
   font-size:22px;
 }
 
-#planet-name {
+span#planet-name {
   font-size:80px;
 }
 
 #globe ul {
     color: rgb(255, 255, 255);
     padding-right: 125px;
-    /* padding-top: 25px; */
+    margin-top: 0;
 }
 
 #globe li {

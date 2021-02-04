@@ -150,7 +150,6 @@ document.querySelector("#thumbs").addEventListener("click", (e) => {
     let planet = e.target.getAttribute("planet")
 
     // console.log(planet)
-
     
 
     // if(0 === 2) {
@@ -249,9 +248,10 @@ function planetWeather(e) {
       let planet = e.target.getAttribute("planet")
 
       if (planet === "Tatooine") {
+        planetName.innerHTML = parsedData.results[0].name
         globeDiv.innerHTML = `
           <ul>
-          <li>${parsedData.results[0].name}</li>
+          
           <li class="climate-population">Climate: ${parsedData.results[0].climate}</li>
           <li class="climate-population">Population: ${parsedData.results[0].population}</li>
           </ul>`
