@@ -4,10 +4,10 @@ body {
   background:#000 url("/images/space-background-with-stars-vector-illustration_97886-319.jpg") repeat right top;
   color: #fff;
 }
-
+/* 
 div {
   margin:30px auto;
-}
+} */
 
 
 #movieLogo {
@@ -16,7 +16,7 @@ div {
 }
 
 #movieLogo img {
-  width: 500px;
+  width: 430px;
   height: 300px;
 }
 
@@ -40,6 +40,9 @@ img.pic {
 #thumbs {
   /* border:2px solid red; */
   width: 1100px;
+  margin-bottom: 20px;
+  margin-left:auto;
+  margin-right: auto;
 }
 
 img.pic {
@@ -56,21 +59,24 @@ img.pic:hover {
 
 #image-caption {
   /* border:2px solid orange; */
-  width: 600px;
+  width: 800px;
+  margin-top: 20px;
 }
 
 #quotes {  
-  width: 500px;
-  /* border: 2px solid pink; */
-  
+  text-align: center;
+  width: 1000px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;  
 }
 
 #globe {
- display: flex;
- justify-content: flex-start;
- border: 2px solid blue;
- width: 800px;
- margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-right:auto;
+  margin-left:auto;
 }
 
 #globe img {
@@ -79,12 +85,13 @@ img.pic:hover {
 }
 
 #globe .climate-population {
-  border:2px solid #fff;
+  /* border:2px solid #fff; */
   font-size:22px;
 }
 
 span#planet-name {
   font-size:80px;
+  padding-left:30px;
 }
 
 #globe ul {
@@ -101,6 +108,18 @@ span#planet-name {
   font-size:25px;
 }
 
+
+#planet-api-data span {
+  color:yellow;
+}
+
 #film-data {
   border:2px solid fuchsia;
+}
+
+#quotes-tagline {
+  margin-top: 70px;
+  text-align: center;
+  color:yellow;
+  font-size: 30px;
 }
