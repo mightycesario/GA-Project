@@ -17,7 +17,7 @@ const planetName = document.querySelector("#planet-name")
 
 // Event Listeners and API stuff
 
-fetch(apiURL + "planets")
+fetch("https://swapi.dev/api/planets")
   .then((responseData) => {
     return responseData.json()
   })
@@ -125,7 +125,7 @@ document.querySelector("#thumbs").addEventListener("click", (e) => {
 // populate #planet-api-data with API data for spinning globe gif element
 
 function planetWeather(e) {
-  fetch(apiURL + "planets")
+  fetch("https://swapi.dev/api/planets")
     .then((responseData) => {
       return responseData.json()
     })
