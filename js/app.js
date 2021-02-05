@@ -116,9 +116,10 @@ document.querySelector("#thumbs").addEventListener("click", (e) => {
       index++
       clearInterval(timer)
 
-      // if (index > returnQuotes.length-1) {
-      //   index = 0
-      // }
+
+      if (index > returnQuotes.length-1) {
+        index = 0
+      }
     }
 
 
