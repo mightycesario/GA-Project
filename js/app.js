@@ -33,7 +33,6 @@ fetch(apiURL + "planets")
           titleDataEl.innerHTML = `This planet made it's debut in the second installment of the original star wars trilogy, known for its freezing cold weather, beautiful views and Taun-Tauns!`
         } else {
           titleDataEl.innerHTML = `Home of tall trees, tree-house structures, and of course home of the furry Ewok's!`
-
         }
       })
     }
@@ -50,9 +49,12 @@ for (let i = 0; i < imgs.length; i++) {
 // Create a loop like behavior to scroll through array of quotes in bottom region of webpage
 document.querySelector("#thumbs").addEventListener("click", (e) => {
 
-  let timer = null
+ 
   let index = 0
 
+  // clearing the most recent id assigned via setInterval at bottom of function
+  console.log("clearing", localStorage.getItem("timer"))
+  clearInterval(localStorage.getItem("timer"))
   function displayQuote() {
 
 
@@ -66,14 +68,17 @@ document.querySelector("#thumbs").addEventListener("click", (e) => {
 
     let planet = e.target.getAttribute("planet")
 
+    
 
     if (planet === "Tatooine") {
 
       if (index === newHopequotes.length - 1) {
         quotesEl.innerHTML = newHopequotes[index]
+        
         clearInterval(timer)
       } else {
         quotesEl.innerHTML = newHopequotes[index]
+        console.log(timer)
         index++
       }
 
@@ -83,9 +88,12 @@ document.querySelector("#thumbs").addEventListener("click", (e) => {
 
     } else if (planet === "Hoth") {
       if (index === empireQuotes.length - 1) {
+        
         clearInterval(timer)
+        
       } else {
         quotesEl.innerHTML = empireQuotes[index]
+        console.log(timer)
         index++
       }
 
@@ -96,10 +104,12 @@ document.querySelector("#thumbs").addEventListener("click", (e) => {
     } else if (planet === "Endor") {
 
       quotesEl.innerHTML = returnQuotes[index]
-      index++
-      clearInterval(timer)
-
+      console.log(timer)
+      index++      
+      
+      console.log("index", index)
       if (index > returnQuotes.length - 1) {
+        clearInterval(timer)  
         index = 0
       }
     }
@@ -107,7 +117,13 @@ document.querySelector("#thumbs").addEventListener("click", (e) => {
 
   }
 
-  timer = setInterval(displayQuote, 2000)
+  let timer = setInterval(displayQuote, 2000)
+
+  let thisvariable = displayQuote()
+
+
+
+  localStorage.setItem("timer", timer)
 })
 
 
