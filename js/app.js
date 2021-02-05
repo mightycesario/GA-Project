@@ -1,7 +1,8 @@
 // Global Variables
 const apiURL = "https://swapi.dev/api/"
 
-// Select Elements (caching)
+
+// Global variables and Select Elements (caching) Thanks Brock!
 const globeEl = document.querySelector("#globe")
 const captionEl = document.querySelector("#caption")
 const thumbsEl = document.querySelector("#thumbs")
@@ -14,9 +15,7 @@ const globeDiv = globeEl.querySelector("#planet-api-data")
 const planetName = document.querySelector("#planet-name")
 
 
-
-
-// Event Listeners
+// Event Listeners and API stuff
 
 fetch(apiURL + "planets")
   .then((responseData) => {
@@ -25,10 +24,6 @@ fetch(apiURL + "planets")
   .then((parsedData) => {
 
 
-
-  
-
-      
     for (let i = 0; i < imgs.length; i++) {
       imgs[i].addEventListener("click", function (e) {
         let planet = e.target.getAttribute("planet")
@@ -42,12 +37,6 @@ fetch(apiURL + "planets")
         }
       })
     }
-
-    for (let i = 0; i < parsedData.results.length; i++) {
-      // dataEl.textContent = parsedData.results[i].name
-      // ul.appendChild(liEl)
-    }
-
   })
 
   for(let i = 0; i < imgs.length; i++) {
@@ -58,7 +47,7 @@ fetch(apiURL + "planets")
 
 // Functions
 
-
+// Create a loop like behavior to scroll through array of quotes in bottom region of webpage
 document.querySelector("#thumbs").addEventListener("click", (e) => {
 
   let timer = null
@@ -167,162 +156,3 @@ function planetWeather(e) {
     })
 }
 
-
-let temp = "Hello"
-
-// changeBackground()
-
-function incrementParent() {
-
-  let index = 0
-
-  function incrementThrough() {
-
-    if (index < 3) {
-      index++
-      console.log("index", index)
-      // timer++
-    }
-    console.log("inside function", temp)
-
-  }
-
-  console.log("outside function", temp)
-
-  let timerId = setInterval(incrementThrough, 3000)
-}
-
-
-
-
-  // // now can use API to  display / manipulate object data on webpage 
-    // for (let i = 0; i < parsedData.results.length; i++) {
-    //   let pEl = document.createElement("p")
-    //   //pEl.textContent = `The current weather on ${parsedData.results[i].name} is ${parsedData.results[i].climate}`
-    //   // quotesEl.appendChild(pEl)
-    // }
-
-
-    // console.log(planet)
-    
-
-    // if(0 === 2) {
-    //   console.log()
-    //   console.log("if", 0)
-    //   <div id="quotes">I find your lack of faith disturbing. — Darth Vader</div>
-    //   clearInterval()
-    // }
-
-
-
-// function changeBackground() {
-//   let body = document.body
-//   body.style.background = "transparent url(\"../images/article-desert-l.png\") cover right top"
-// }
-
-
-
-// function clearIt() {
-//   console.log("before clear", timer)
-//   clearInterval(timerId)
-//   console.log("after clear", timer)
-// }
-
-// let timerId = setInterval(incrementThrough, 2000)
-
-
-
-// thumbsEl.addEventListener("click", (e) => {
-
-//   displayQuotes()
-
-//   function displayQuotes() {
-
-//     console.log("here 2")
-//     let timer = null
-//     let index = 0
-//     const planet = e.target.getAttribute("planet")
-
-//     const newHopequotes = ["That’s no moon. It’s a space station. — Obi-Wan Kenobi", "Aren’t you a little short for a stormtrooper? — Leia Organa", "I find your lack of faith disturbing. — Darth Vader"]
-
-//     const empireQuotes = ["Yes, Your Highnessness? – Han Solo", "He’s no good to me dead. – Boba Fett", "The son of Skywalker must not become a Jedi. – Emperor Palpatine",
-//       "Why, you stuck up, half-witted, scruffy-looking…nerf-herder! – Leia Organa", "Do. Or do not. There is no try. – Yoda", "I am your father. – Darth Vader"]
-
-//     const returnQuotes = ["Bring me Solo and the Wookiee. They will all suffer for this outrage.", "Obi-Wan has taught you well.", "And now, young Skywalker...you will die.", "IT'S A TRAP!!", "You cannot hide forever, Luke.", "I am a Jedi, like my father before me", "What is thy bidding, my master?"]
-
-//     quotesEl.innerHTML = newHopequotes[index]
-
-//     // for(let i = 0; i < newHopequotes.length; i++) {
-//     //   console.log(i)
-//     //   setInterval(function() {
-//     //     console.log(newHopequotes[i])
-//     //      // quotesEl.innerHTML = newHopequotes[i]
-//     //   }, 3000)
-//     // }
-    
-//     // if(index === newHopequotes.length-1) {
-//     //   clearInterval()
-//     // } else {
-//     //   console.log("index", index)
-//     //   index++
-//     // }
-    
-
-//     // return index
-
-//     if (index === newHopequotes.length - 1) {
-//       // console.log("first", index, planet)
-//       index++
-//       clearInterval(timer)
-//       console.log("now clearinterval")
-//       // setTimeout(timer)
-
-//     } else {
-//       // console.log("third", index, planet)
-//       index++
-//     }
-
-//     if (index > 3) {
-//       index = 0
-//       // clearInterval(timer)
-//     }
-
-//     timer = setInterval(displayQuotes, 2000)
-
-
-//   }
-  
-
-
-
-
-   
-
-// })
-
-
-
-// function filmDataFunction() {
-  
-//   fetch(apiURL + "people")
-//     .then((responseData) => {
-//       return responseData.json()
-//     })
-//     .then((parsedData) => {
-//       if(filmDataEl) {
-//         filmDataEl.textContent = `
-//         Title: ${parsedData.results[0].title}        
-//         Director: ${parsedData.results[0].director}
-//         Release Date: ${parsedData.results[0].release_date}
-//         Producer: ${parsedData.results[0].producer}`
-//         let names = ""        
-//         for(let i = 0; i < parsedData.results.length; i++) {
-//           names += `${parsedData.results[i].name}`
-//           filmDataEl.textContent += `Characters in film:  ${names}`
-//         }
-//       }
-//     })
-// }
-
-
-// console.log(filmDataFunction())

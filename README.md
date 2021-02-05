@@ -1,5 +1,13 @@
 # GA-Project
 
+# Star Wars Planets SWAPI
+
+## Motivation
+
+I have always liked the star wars universe so I chose to work with the Star wars API
+"SWAPI". With all of the latest editions to the Star Wars universe whether its the latest episodes realeased in theatres or the latest creations on Disney plus streaming services like all the craze about The Mandalorian, I feel like you cant go wrong with lightsabers , politics and the force. Its just over all great entertainment and fun.
+
+
 # The largest heading
 ## The second largest heading
 ###### The smallest heading
@@ -47,3 +55,5 @@ This site was built using [GitHub Pages](https://pages.github.com/).
 - George Washington
 - John Adams
 - Thomas Jefferson
+
+![descriptive text](/images/wireframemockup.jpeg)
