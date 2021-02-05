@@ -41,3 +41,4 @@ I would like to add some more content to this and adjust some of the layout as w
 
 ### Link to live site
 
+(https://mightycesario.github.io/GA-SWAPI-Project1/)
