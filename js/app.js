@@ -46,7 +46,7 @@ for (let i = 0; i < imgs.length; i++) {
 
 // Functions
 
-// Create a loop like behavior to scroll through array of quotes in bottom region of webpage
+// Create a loop like behavior to scroll through through array of quotes in bottom region of webpage
 document.querySelector("#thumbs").addEventListener("click", (e) => {
 
  
