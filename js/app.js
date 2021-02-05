@@ -58,7 +58,7 @@ document.querySelector("#thumbs").addEventListener("click", (e) => {
   function displayQuote() {
 
 
-    const newHopequotes = ["That’s no moon. It’s a space station. — Obi-Wan Kenobi", "Aren’t you a little short for a stormtrooper? — Leia Organa", "I find your lack of faith disturbing. — Darth Vader"]
+    const newHopequotes = ["That’s no moon. It’s a space station. — Obi-Wan Kenobi", "Aren’t you a little short for a stormtrooper? — Leia Organa", "We’re doomed. — C-3PO", "Help me, Obi-Wan Kenobi. You’re my only hope. — Leia Organa", "Hokey religions and ancient weapons are no match for a good blaster at your side, kid. — Han Solo", "When I left you I was but the learner. Now I am the master. — Darth Vader", "I find your lack of faith disturbing. — Darth Vader"]
 
     const empireQuotes = ["Yes, Your Highnessness? – Han Solo", "He’s no good to me dead. – Boba Fett", "The son of Skywalker must not become a Jedi. – Emperor Palpatine",
       "Why, you stuck up, half-witted, scruffy-looking…nerf-herder! – Leia Organa", "Do. Or do not. There is no try. – Yoda", "I am your father. – Darth Vader"]
@@ -69,7 +69,7 @@ document.querySelector("#thumbs").addEventListener("click", (e) => {
     let planet = e.target.getAttribute("planet")
 
     
-
+    // if logic to check against which planet attribute has been selected
     if (planet === "Tatooine") {
 
       if (index === newHopequotes.length - 1) {
@@ -117,7 +117,7 @@ document.querySelector("#thumbs").addEventListener("click", (e) => {
 
   }
 
-  let timer = setInterval(displayQuote, 2000)
+  let timer = setInterval(displayQuote, 2500)
 
   let thisvariable = displayQuote()
 
